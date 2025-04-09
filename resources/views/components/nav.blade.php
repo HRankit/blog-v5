@@ -6,32 +6,42 @@
     <a
         wire:navigate
         href="{{ route('home') }}"
-        @class([
-            'transition-colors hover:text-blue-600',
-            'text-blue-600' => request()->routeIs('home'),
+        @class([ 'transition-colors hover:text-blue-600' , 'text-blue-600'=> request()->routeIs('home'),
         ])"
-    >
+        >
         @if (request()->routeIs('home'))
-            <x-heroicon-s-home class="mx-auto size-6 md:size-7" />
+        <x-heroicon-s-home class="mx-auto size-6 md:size-7" />
         @else
-            <x-heroicon-o-home class="mx-auto size-6 md:size-7" />
+        <x-heroicon-o-home class="mx-auto size-6 md:size-7" />
         @endif
 
         Home
     </a>
-
     <a
         wire:navigate
         href="{{ route('posts.index') }}"
-        @class([
-            'transition-colors hover:text-blue-600',
-            'text-blue-600' => request()->routeIs('posts.index'),
+        @class([ 'transition-colors hover:text-blue-600' , 'text-blue-600'=> request()->routeIs('posts.index'),
         ])"
-    >
+        >
         @if (request()->routeIs('posts.index'))
-            <x-heroicon-s-fire class="mx-auto size-6 md:size-7" />
+        <x-heroicon-s-fire class="mx-auto size-6 md:size-7" />
         @else
-            <x-heroicon-o-fire class="mx-auto size-6 md:size-7" />
+        <x-heroicon-o-fire class="mx-auto size-6 md:size-7" />
+        @endif
+
+        Blog
+    </a>
+    <!-- 
+    <a
+        wire:navigate
+        href="{{ route('posts.index') }}"
+        @class([ 'transition-colors hover:text-blue-600' , 'text-blue-600'=> request()->routeIs('posts.index'),
+        ])"
+        >
+        @if (request()->routeIs('posts.index'))
+        <x-heroicon-s-fire class="mx-auto size-6 md:size-7" />
+        @else
+        <x-heroicon-o-fire class="mx-auto size-6 md:size-7" />
         @endif
 
         Latest
@@ -40,21 +50,21 @@
     <a
         wire:navigate
         href="{{ route('links.index') }}"
-        @class([
-            'transition-colors hover:text-blue-600',
-            'text-blue-600' => request()->routeIs('links.index'),
+        @class([ 'transition-colors hover:text-blue-600' , 'text-blue-600'=> request()->routeIs('links.index'),
         ])"
-    >
+        >
         @if (request()->routeIs('links.index'))
-            <x-heroicon-s-link class="mx-auto size-6 md:size-7" />
+        <x-heroicon-s-link class="mx-auto size-6 md:size-7" />
         @else
-            <x-heroicon-o-link class="mx-auto size-6 md:size-7" />
+        <x-heroicon-o-link class="mx-auto size-6 md:size-7" />
         @endif
 
         Links
     </a>
+  -->
 
-    @auth
+   
+    <!-- @auth
         <x-dropdown>
             <x-slot:btn>
                 <x-heroicon-o-user class="mx-auto size-6 md:size-7" />
@@ -97,51 +107,57 @@
             <x-iconoir-github class="mx-auto size-6 md:size-7" />
             Sign in
         </a>
-    @endauth
+    @endauth -->
 
     <x-dropdown>
         <x-slot:btn>
             <x-heroicon-o-ellipsis-horizontal
                 class="mx-auto transition-transform size-6 md:size-7"
-                x-bind:class="{ 'rotate-90': open }"
-            />
+                x-bind:class="{ 'rotate-90': open }" />
             More
-        </x-slot>
+            </x-slot>
 
-        <x-slot:items>
-            <x-dropdown.item href="https://github.com/benjamincrozat/blog-v5" target="_blank">
-                <x-iconoir-git-fork class="size-4" />
-                Fork the source code
-            </x-dropdown.item>
+            <x-slot:items>
+                <!-- <x-dropdown.item href="https://github.com/benjamincrozat/blog-v5" target="_blank">
+                    <x-iconoir-git-fork class="size-4" />
+                    Fork the source code
+                </x-dropdown.item> -->
 
-            <x-dropdown.item href="{{ route('home') }}#about">
-                <x-heroicon-o-question-mark-circle class="size-4" />
-                About me
-            </x-dropdown.item>
+                <x-dropdown.item href="{{ route('home') }}#about">
+                    <x-heroicon-o-question-mark-circle class="size-4" />
+                    About us
+                </x-dropdown.item>
 
-            <x-dropdown.item href="mailto:hello@benjamincrozat.com">
-                <x-heroicon-o-envelope class="size-4" />
-                Contact me
-            </x-dropdown.item>
+                <x-dropdown.item href="mailto:reachus@duparedentalclinic.com">
+                    <x-heroicon-o-envelope class="size-4" />
+                    Email us
+                </x-dropdown.item>
 
-            <x-dropdown.divider>
-                Follow me
-            </x-dropdown.divider>
+                <x-dropdown.divider>
+                    Follow us
+                </x-dropdown.divider>
 
-            <x-dropdown.item href="https://github.com/benjamincrozat" target="_blank">
-                <x-iconoir-github class="size-4" />
-                GitHub
-            </x-dropdown.item>
+                <x-dropdown.item href="https://www.facebook.com/dr.duparedentalclinic/" target="_blank">
+                    <x-iconoir-facebook class="size-4" />
+                    Facebook
+                </x-dropdown.item>
 
-            <x-dropdown.item href="https://www.linkedin.com/in/benjamincrozat" target="_blank">
-                <x-iconoir-linkedin class="size-4" />
-                LinkedIn
-            </x-dropdown.item>
+                <x-dropdown.item href="https://www.instagram.com/duparedentalclinic/" target="_blank">
+                    <x-iconoir-instagram class="size-4" />
+                    Instagram
+                </x-dropdown.item>
 
-            <x-dropdown.item href="https://x.com/benjamincrozat" target="_blank">
-                <x-iconoir-x class="size-4" />
-                X
-            </x-dropdown.item>
-        </x-slot>
+                <!-- <x-dropdown.item href="https://x.com/benjamincrozat" target="_blank">
+                    <x-iconoir-x class="size-4" />
+                    X
+                </x-dropdown.item> -->
+                </x-slot>
     </x-dropdown>
+    <x-btn
+        primary
+        class="flex items-center"
+        href="tel:+919021366831">
+        <x-heroicon-o-phone style="margin-right: 0.75rem;" class="mx-auto size-6 md:size-6 mr-3" />
+        Book Appointment
+    </x-btn>
 </nav>
